@@ -1,0 +1,72 @@
+{
+  "private": true,
+  "scripts": {
+    "start": "cross-dev UMI_ENV=dev umi dev",
+    "build": "umi build",
+    "build:prod": "cross-dev UMI_ENV=prod umi build",
+    "build:test": "cross-dev UMI_ENV=test umi build",
+    "postinstall": "umi generate tmp",
+    "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
+    "test": "umi-test",
+    "test:coverage": "umi-test --coverage"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged",
+    "commit-msg": "commitlint -e $GIT_PARAMS"
+  },
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "eslint --fix",
+      "prettier --write",
+      "git add"
+    ],
+    "*.ts?(x)": [
+      "prettier --parser=typescript --write",
+      "git add",
+      "eslint --fix"
+    ],
+    "*.less": [
+      "prettier  --write",
+      "git add",
+      "stylelint --syntax less"
+    ]
+  },
+  "config":{
+    "commitzen":{
+      "path":"node_modules/cz-conventional-changelog"
+    }
+  },
+  "dependencies": {
+    "@ant-design/pro-layout": "^6.5.0",
+    "lodash": "^4.17.21",
+    "react": "17.x",
+    "react-dom": "17.x",
+    "umi": "^3.5.20"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@umijs/preset-react": "1.x",
+    "@umijs/test": "^3.5.20",
+    "babel-loader": "^8.2.3",
+    "commitizen": "^4.2.4",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.4.1",
+    "eslint-plugin-flowtype": "^8.0.3",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-promise": "^5.2.0",
+    "eslint-plugin-react": "^7.27.1",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "eslint-plugin-standard": "^5.0.0",
+    "lint-staged": "^10.0.7",
+    "prettier": "^2.2.0",
+    "stylelint": "^14.1.0",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-standard": "^24.0.0",
+    "typescript": "^4.1.2",
+    "webpack": "^5.65.0",
+    "yorkie": "^2.0.0"
+  }
+}
