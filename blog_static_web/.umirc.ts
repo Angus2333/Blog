@@ -27,17 +27,17 @@ export default defineConfig({
   cssLoader:{
     localsConvention:'camelCase'
   },
-  // extraBabelPlugins:[
-  //   [
-  //     'import',
-  //     {
-  //       //lodash的按需加载
-  //       libraryName:'lodash',
-  //       libraryDirectory:'',
-  //       camel2DashComponentName:false
-  //     },
-  //     'lodash'
-  //   ]
-  // ],
+  extraBabelPlugins:[
+    [
+      'import',
+      {
+        //lodash的按需加载
+        libraryName:'lodash',
+        libraryDirectory:'',
+        camel2DashComponentName:false
+      },
+      'lodash'
+    ]
+  ],
   fastRefresh: {},
 });
